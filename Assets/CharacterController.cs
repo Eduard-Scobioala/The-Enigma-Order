@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] float speed = 2.0f;
     Vector2 motionVector;
     Animator animator;
+    public Vector2 lastMotionVector;
+    public bool moving;
 
     private void Awake()
     {
@@ -17,9 +19,24 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
-        motionVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        animator.SetFloat("horizontal", Input.GetAxisRaw("Horizontal"));
-        animator.SetFloat("vertical", Input.GetAxisRaw("Vertical"));
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        motionVector = new Vector2(horizontal, vertical);
+
+        animator.SetFloat("horizontal", horizontal);
+        animator.SetFloat("vertical", vertical);
+
+        moving = horizontal != 0f || vertical != 0f;
+        animator.SetBool("moving", moving);
+
+        if (moving)
+        {
+            lastMotionVector = new Vector2(horizontal, vertical).normalized;
+
+            animator.SetFloat("lastHorizontal", horizontal);
+            animator.SetFloat("lastVertical", vertical);
+        }
     }
 
     void FixedUpdate()
