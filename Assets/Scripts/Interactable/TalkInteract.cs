@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class TalkInteract : Interactable
 {
+    [SerializeField] DialogueContainer dialogue;
     public override void Interact(Character character)
     {
-        Debug.Log("Heloo...\nNice to meet you...");
+        GameManager.instance.dialogueSystem.Initialize(dialogue);
     }
 }
