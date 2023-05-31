@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum TransitionType
 {
@@ -12,6 +10,7 @@ public class Transition : MonoBehaviour
 {
     [SerializeField] TransitionType transitionType;
     [SerializeField] string sceneToTransition;
+    [SerializeField] Vector3 targetPosition;
 
     Transform destination;
 
@@ -22,9 +21,18 @@ public class Transition : MonoBehaviour
 
     internal void InitiateTransition(Transform toTransition)
     {
-        switch(transitionType)
+        switch (transitionType)
         {
             case TransitionType.Warp:
+                Cinemachine.CinemachineBrain currentCamera =
+                    Camera.main.GetComponent<Cinemachine.CinemachineBrain>();
+                // Event for repositioning of the camera
+                currentCamera.ActiveVirtualCamera.OnTargetObjectWarped(
+                toTransition,
+                destination.position - toTransition.position
+                );
+
+                // Change the position of the character
                 toTransition.position = new Vector3(
                     destination.position.x,
                     destination.position.y,
@@ -32,7 +40,8 @@ public class Transition : MonoBehaviour
                 );
                 break;
             case TransitionType.Scene:
-                SceneManager.LoadScene(sceneToTransition);
+                // Load the next scene with the character on a target position
+                GameSceneManager.instance.InitSwitchScene(sceneToTransition, targetPosition);
                 break;
         }
     }
