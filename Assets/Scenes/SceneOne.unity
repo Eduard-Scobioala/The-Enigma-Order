@@ -2764,6 +2764,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3323791442511892458, guid: 4ebe9a203ed78b74dadd848dd881eaf9, type: 3}
+      propertyPath: onOpenAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d70581fc6af2e84d8515da7d2a19c12, type: 3}
     - target: {fileID: 3323791442511892462, guid: 4ebe9a203ed78b74dadd848dd881eaf9, type: 3}
       propertyPath: m_Name
       value: Cabinet
