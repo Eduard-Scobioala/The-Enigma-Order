@@ -46,6 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd88e532a52ce6429d9d37cfb329546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionType: 0
+  sceneToTransition: 
+  nextScenePosition: {x: 0, y: 0, z: 0}
+  wrapConfiner: {fileID: 0}
+  destination: {fileID: 514800329743283913}
 --- !u!1 &514800329743283912
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,7 +75,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514800329743283912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.61, y: 2.96, z: 0}
+  m_LocalPosition: {x: -48.41, y: 3.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
