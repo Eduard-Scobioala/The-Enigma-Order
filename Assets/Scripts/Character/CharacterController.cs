@@ -19,6 +19,12 @@ public class CharacterController : MonoBehaviour
 
     private void Update()
     {
+        // If dialogue playing, freeze the player's movement
+        if (DialogueManager.instance.DialogueIsPlaying)
+        {
+            return;
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 

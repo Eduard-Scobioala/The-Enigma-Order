@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public enum TransitionType
@@ -61,10 +63,12 @@ public class Transition : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (transitionType == TransitionType.Scene)
-        {
-            Handles.Label(transform.position, "to " + sceneToTransition);
-        }
+        #if UNITY_EDITOR
+            if (transitionType == TransitionType.Scene)
+            {
+                Handles.Label(transform.position, "to " + sceneToTransition);
+            }
+        #endif
 
         if (transitionType == TransitionType.Warp)
         {
