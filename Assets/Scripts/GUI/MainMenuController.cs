@@ -4,7 +4,12 @@ using UnityEngine.UIElements;
 
 public class MainMenuController : MonoBehaviour
 {
-    public Button startButton;
+    [SerializeField] private VisualTreeAsset mainMenuTree;
+    [SerializeField] private VisualTreeAsset optionMenuTree;
+    [SerializeField] private UIDocument uiDocument;
+
+    public Button newGameButton;
+    public Button continueButton;
     public Button optionButton;
     public Button exitButton;
 
@@ -13,19 +18,44 @@ public class MainMenuController : MonoBehaviour
         // Get reference to the root ui element
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-        startButton = root.Q<Button>("newGameButton");
+        newGameButton = root.Q<Button>("newGameButton");
+        continueButton = root.Q<Button>("continueButton");
         optionButton = root.Q<Button>("optionButton");
         exitButton = root.Q<Button>("exitButton");
 
-        startButton.clicked += StartButtonPressed;
+        newGameButton.clicked += NewGameButtonPressed;
+        continueButton.clicked += ContinueButtonPressed;
         optionButton.clicked += OptionButtonPressed;
         exitButton.clicked += ExitButtonPressed;
+
+        // Bind functionality only there is data already saved
+        if (!DataPersistanceManager.Instance.HasTheGameData())
+        {
+            continueButton.SetEnabled(false);
+        }
     }
 
-    void StartButtonPressed()
+    void NewGameButtonPressed()
     {
-        SceneManager.LoadScene("SceneOne");
-        SceneManager.LoadScene("Essential", LoadSceneMode.Additive);
+        //// Create a new game ( create a new GameData object)
+        //DataPersistanceManager.Instance.NewGame();
+
+        //// Load Scenes (which will also load the game because of OnSceneLoaded() function)
+        //SceneManager.LoadSceneAsync("SceneOne");
+        //SceneManager.LoadSceneAsync("Essential", LoadSceneMode.Additive);
+
+        //VisualElement optionMenu = optionMenuTree.CloneTree();
+        //GetComponent<UIDocument>().rootVisualElement.Clear();
+        //GetComponent<UIDocument>().rootVisualElement.Add(optionMenu);
+
+        uiDocument.visualTreeAsset = optionMenuTree;
+    }
+
+    void ContinueButtonPressed()
+    {
+        // Load the Game
+        SceneManager.LoadSceneAsync("SceneOne");
+        SceneManager.LoadSceneAsync("Essential", LoadSceneMode.Additive);
     }
 
     void OptionButtonPressed()

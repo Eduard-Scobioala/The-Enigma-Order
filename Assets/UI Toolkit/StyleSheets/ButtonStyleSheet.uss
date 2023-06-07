@@ -1,0 +1,173 @@
+.menu-button {
+    height: 91px;
+    width: 370px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 77px;
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 50px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    transform-origin: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-top: 30px;
+    -unity-background-image-tint-color: rgb(88, 88, 88);
+    background-color: rgb(88, 88, 88);
+    color: rgb(210, 210, 210);
+}
+
+.menu-button:hover {
+    height: 91px;
+    width: 370px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 77px;
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 50px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    transform-origin: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-top: 30px;
+    -unity-background-image-tint-color: rgb(72, 72, 72);
+    background-color: rgb(65, 65, 65);
+    color: rgb(210, 210, 210);
+}
+
+.menu-button:active {
+    height: 91px;
+    width: 370px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 77px;
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 50px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    transform-origin: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-top: 30px;
+    -unity-background-image-tint-color: rgb(72, 72, 72);
+    background-color: rgb(170, 170, 170);
+    color: rgb(88, 88, 88);
+}
+
+.slot-button {
+    flex-grow: 1;
+    align-items: flex-start;
+    width: 90%;
+    height: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgb(88, 88, 105);
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    font-size: 110px;
+    color: rgb(253, 245, 230);
+    visibility: visible;
+    display: flex;
+}
+
+.slot-button:hover {
+    flex-grow: 1;
+    align-items: flex-start;
+    width: 90%;
+    height: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgba(70, 70, 87, 255);
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    font-size: 110px;
+    color: rgb(253, 245, 230);
+    visibility: visible;
+    display: flex;
+}
+
+.slot-button:active {
+    flex-grow: 1;
+    align-items: flex-start;
+    width: 90%;
+    height: 100%;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgb(52, 52, 63);
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    font-size: 110px;
+    color: rgb(253, 245, 230);
+    visibility: visible;
+    display: flex;
+}
+
+.back-button {
+    width: 10%;
+    height: 7%;
+    background-color: rgb(210, 210, 210);
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    font-size: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    bottom: 45px;
+}
+
+.back-button:hover {
+    width: 10%;
+    height: 7%;
+    background-color: rgb(176, 176, 176);
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    font-size: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    bottom: 45px;
+}
+
+.back-button:active {
+    width: 10%;
+    height: 7%;
+    background-color: rgba(101, 101, 101, 255);
+    -unity-font: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono.ttf?fileID=12800000&guid=d5cc8d96d76325c4dad550558daddb9a&type=3#CubicCoreMono');
+    -unity-font-definition: url('project://database/Assets/UI%20Toolkit/Fonts/CubicCoreMono%20SDF.asset?fileID=11400000&guid=d11cddbd5d65d23488c15f610a3bd4e4&type=2#CubicCoreMono SDF');
+    font-size: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: absolute;
+    bottom: 45px;
+}

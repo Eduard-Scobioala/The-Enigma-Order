@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CharacterController : MonoBehaviour
+public class CharacterController : MonoBehaviour, IDataPersistance
 {
-    Rigidbody2D rigidbody2d;
     [SerializeField] float speed = 2.0f;
+
+    Rigidbody2D rigidbody2d;
     Vector2 motionVector;
     Animator animator;
+
     public Vector2 lastMotionVector;
     public bool moving;
 
@@ -16,6 +18,8 @@ public class CharacterController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
+
+    #region Movement
 
     private void Update()
     {
@@ -54,4 +58,20 @@ public class CharacterController : MonoBehaviour
     {
         rigidbody2d.velocity = motionVector * speed;
     }
+
+    #endregion
+
+    #region Save&Load 
+
+    public void LoadData(GameData data)
+    {
+        transform.position = data.playerPosition;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.playerPosition = transform.position;
+    }
+
+    #endregion
 }

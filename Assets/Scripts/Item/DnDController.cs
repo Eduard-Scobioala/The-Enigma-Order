@@ -23,6 +23,8 @@ public class DnDController : MonoBehaviour
         {
             iconTransform.position = Input.mousePosition;
 
+            // Code resposible for spawning items on the map
+            /*
             if (Input.GetMouseButtonDown(0))
             {
                 if (EventSystem.current.IsPointerOverGameObject() == false)
@@ -36,6 +38,7 @@ public class DnDController : MonoBehaviour
                     itemIcon.SetActive(false);
                 }
             }
+            */
         }
     }
 

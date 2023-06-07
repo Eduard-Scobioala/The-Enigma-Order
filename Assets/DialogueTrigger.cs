@@ -5,6 +5,9 @@ public class DialogueTrigger : MonoBehaviour
     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
 
+    [Header("Character's Container")]
+    [SerializeField] private Actor NPCCharacter;
+
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
@@ -24,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if (Input.GetMouseButtonDown(0))
             {
-                DialogueManager.instance.EnterDialogueMode(inkJSON);
+                DialogueManager.instance.EnterDialogueMode(inkJSON, NPCCharacter);
             }
         }
         else
