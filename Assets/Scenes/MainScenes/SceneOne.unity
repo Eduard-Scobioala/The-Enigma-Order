@@ -4984,6 +4984,14 @@ PrefabInstance:
       propertyPath: initializeDataIfNull
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1808959478511148821, guid: 5cb54b1fd2b58de47b85fa6c04019cff, type: 3}
+      propertyPath: disableDataPersistence
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1808959478511148821, guid: 5cb54b1fd2b58de47b85fa6c04019cff, type: 3}
+      propertyPath: overrideSelectedProfileId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1808959478511148822, guid: 5cb54b1fd2b58de47b85fa6c04019cff, type: 3}
       propertyPath: m_RootOrder
       value: 0

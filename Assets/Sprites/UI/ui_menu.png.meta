@@ -239,7 +239,7 @@ TextureImporter:
         width: 36
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,7 +260,7 @@ TextureImporter:
         width: 42
         height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,6 +268,69 @@ TextureImporter:
       bones: []
       spriteID: f8d24de889e883447b79679910477410
       internalID: -152212855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: menu_button
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 419
+        width: 66
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 12, z: 9, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffd794d83da9174eb06549aa03feaa6
+      internalID: 1029167165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: profile_slot
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1321
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 3, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b519039bacba84448ab33868f92352f0
+      internalID: 1441991866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: little_frame
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 1541
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3173db3838bd7f04795358a30b6a7302
+      internalID: 1619651175
       vertices: []
       indices: 
       edges: []
@@ -285,8 +348,11 @@ TextureImporter:
     nameFileIdTable:
       dialogue_frame_1: -1698856659
       ui_menu_0: -623389825
+      profile_slot: 1441991866
       ui_menu_1: 796842879
+      menu_button: 1029167165
       dialogue_box: -536430074
+      little_frame: 1619651175
       character_frame: 882426262
       mouse_cursor_0: 1769329658
       ui_menu_2: -152212855

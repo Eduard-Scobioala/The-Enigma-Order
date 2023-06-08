@@ -2,20 +2,28 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class DataPersistanceManager : MonoBehaviour
 {
     [Header("Debugging")]
     [SerializeField] private bool initializeDataIfNull = false;
+    [SerializeField] private bool disableDataPersistence = false;
+    [SerializeField] private bool overrideSelectedProfileId = false;
+    [SerializeField] private string testSelectedProfileId = "test";
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
 
+    [Header("Auto Saving Configuration")]
+    [SerializeField] private float autoSaveTimeSeconds = 60f;
+
     private GameData gameData;
     private List<IDataPersistance> DataPersistanceObjects;
     private FileDataHandler dataHandler;
-    private string selectedProfileId = "test";
+    private string selectedProfileId = "";
+    private Coroutine autoSaveCoroutine;
 
     public static DataPersistanceManager Instance { get; private set; }
 
@@ -32,6 +40,26 @@ public class DataPersistanceManager : MonoBehaviour
 
         // Initialize the data handler object
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+
+        if (disableDataPersistence)
+        {
+            Debug.LogWarning("Data Persistence is currently disabled!");
+        }
+
+        if (overrideSelectedProfileId)
+        {
+            this.selectedProfileId = testSelectedProfileId;
+            Debug.LogWarning("Overrode selected profile id with test id: " + testSelectedProfileId);
+        }
+    }
+
+    public void ChangeSelectedProfileId(string newProfileId)
+    {
+        // Update the profile to use for the saving
+        this.selectedProfileId = newProfileId;
+
+        // Load the GameData for the new profileId
+        LoadGame();
     }
 
     #region Scene Management
@@ -40,14 +68,12 @@ public class DataPersistanceManager : MonoBehaviour
     {
         // Subscribe functions
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     private void OnDisable()
     {
         // Unsubscribe functions
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -56,11 +82,13 @@ public class DataPersistanceManager : MonoBehaviour
         DataPersistanceObjects = FindAllDataPersistenceObjects();
 
         LoadGame();
-    }
 
-    public void OnSceneUnloaded(Scene scene)
-    {
-        SaveGame();
+        // Start up the auto saving coroutine
+        if (autoSaveCoroutine != null)
+        {
+            StopCoroutine(autoSaveCoroutine);
+        }
+        autoSaveCoroutine = StartCoroutine(AutoSave());
     }
 
     #endregion
@@ -74,6 +102,9 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        // Return if data persistence is disabled
+        if (disableDataPersistence) return;
+
         // Load any saved game from the file used by the data handler
         gameData = dataHandler.Load(selectedProfileId);
 
@@ -99,6 +130,9 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        // Return if data persistence is disabled
+        if (disableDataPersistence) return;
+
         //If we don't have any data to save, log a warning
         if (gameData == null)
         {
@@ -123,7 +157,7 @@ public class DataPersistanceManager : MonoBehaviour
     private List<IDataPersistance> FindAllDataPersistenceObjects()
     {
         // Using using System.Linq get all the objects that implement MonoBehaviour and IDataPersistance
-        IEnumerable<IDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>()
+        IEnumerable<IDataPersistance> dataPersistanceObjects = FindObjectsOfType<MonoBehaviour>(true)
             .OfType<IDataPersistance>();
 
         return new List<IDataPersistance>(dataPersistanceObjects);
@@ -137,6 +171,16 @@ public class DataPersistanceManager : MonoBehaviour
     public Dictionary<string, GameData> GetAllProfilesGameData()
     {
         return dataHandler.LoadAllProfiles();
+    }
+
+    private IEnumerator AutoSave()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(autoSaveTimeSeconds);
+            SaveGame();
+            Debug.Log("Auto Saved Game");
+        }
     }
 
     #endregion

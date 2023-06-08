@@ -12,4 +12,9 @@ public class GameData
         playerPosition = Vector3.zero;
         itemsCollected = new SerializableDictionary<string, bool>();
     }
+
+    public string GetGameLevel()
+    {
+        return "Six";
+    }
 }

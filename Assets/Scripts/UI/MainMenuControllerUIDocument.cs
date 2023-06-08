@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuControllerUIDocument : MonoBehaviour
 {
     [SerializeField] private VisualTreeAsset mainMenuTree;
     [SerializeField] private VisualTreeAsset optionMenuTree;

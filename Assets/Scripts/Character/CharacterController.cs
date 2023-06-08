@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController : MonoBehaviour, IDataPersistance
@@ -46,6 +47,15 @@ public class CharacterController : MonoBehaviour, IDataPersistance
 
             animator.SetFloat("lastHorizontal", horizontal);
             animator.SetFloat("lastVertical", vertical);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // save the game anytime before loading a new scene
+            DataPersistanceManager.Instance.SaveGame();
+
+            // load the main menu scene
+            SceneManager.LoadSceneAsync("MainMenu");
         }
     }
 
