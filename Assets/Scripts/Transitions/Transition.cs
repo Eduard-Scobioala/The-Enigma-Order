@@ -19,13 +19,13 @@ public class Transition : MonoBehaviour
     CameraConfiner cameraConfiner;
     [SerializeField] Transform destination;
 
-    void Start()
-    {
-        if (wrapConfiner != null)
-        {
-            cameraConfiner = FindObjectOfType<CameraConfiner>();
-        }
-    }
+    //void Start()
+    //{
+    //    if (wrapConfiner != null)
+    //    {
+    //        cameraConfiner = FindObjectOfType<CameraConfiner>();
+    //    }
+    //}
 
     internal void InitiateTransition(Transform toTransition)
     {
@@ -36,10 +36,10 @@ public class Transition : MonoBehaviour
                     Camera.main.GetComponent<Cinemachine.CinemachineBrain>();
 
                 // The camera confiner has changed
-                if (cameraConfiner != null)
-                {
-                    cameraConfiner.UpdateBounds(wrapConfiner);
-                }
+                //if (cameraConfiner != null)
+                //{
+                //    cameraConfiner.UpdateBounds(wrapConfiner);
+                //}
 
                 // Event for repositioning of the camera
                 currentCamera.ActiveVirtualCamera.OnTargetObjectWarped(
@@ -56,7 +56,7 @@ public class Transition : MonoBehaviour
                 break;
             case TransitionType.Scene:
                 // Load the next scene with the character on a target position
-                GameSceneManager.instance.InitSwitchScene(sceneToTransition, nextScenePosition);
+                GameSceneManager.Instance.InitSwitchScene(sceneToTransition, nextScenePosition);
                 break;
         }
     }

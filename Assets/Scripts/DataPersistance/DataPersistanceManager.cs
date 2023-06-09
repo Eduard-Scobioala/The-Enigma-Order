@@ -19,7 +19,7 @@ public class DataPersistanceManager : MonoBehaviour
     [Header("Auto Saving Configuration")]
     [SerializeField] private float autoSaveTimeSeconds = 60f;
 
-    private GameData gameData;
+    public GameData gameData { get; private set; }
     private List<IDataPersistance> DataPersistanceObjects;
     private FileDataHandler dataHandler;
     private string selectedProfileId = "";
@@ -100,13 +100,16 @@ public class DataPersistanceManager : MonoBehaviour
         gameData = new GameData();
     }
 
+    public void LoadSave()
+    {
+        // Load any saved game from the file used by the data handler
+        gameData = dataHandler.Load(selectedProfileId);
+    }
+
     public void LoadGame()
     {
         // Return if data persistence is disabled
         if (disableDataPersistence) return;
-
-        // Load any saved game from the file used by the data handler
-        gameData = dataHandler.Load(selectedProfileId);
 
         // For testing purpose we might need a new game when debugging diffrent scenes
         if (gameData == null && initializeDataIfNull)
@@ -142,7 +145,11 @@ public class DataPersistanceManager : MonoBehaviour
         // Pass the data to all the scripts so that it can be updated
         foreach (IDataPersistance dataPersistanceObj in DataPersistanceObjects)
         {
-            dataPersistanceObj.SaveData(gameData);
+            // Avoid saving data for deleted objects
+            if (dataPersistanceObj != null)
+            {
+                dataPersistanceObj.SaveData(gameData);
+            }
         }
 
         // Save GameData to a file

@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
 
         if (canContinueToNextLine
             && currentStory.currentChoices.Count == 0
-            && Input.GetMouseButtonDown(0))
+            && Input.GetKeyDown(KeyCode.E))
         {
             ContinueStory();
         }

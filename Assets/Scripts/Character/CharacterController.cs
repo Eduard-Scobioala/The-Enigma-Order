@@ -71,7 +71,7 @@ public class CharacterController : MonoBehaviour, IDataPersistance
 
     #endregion
 
-    #region Save&Load 
+    #region Save&Load
 
     public void LoadData(GameData data)
     {

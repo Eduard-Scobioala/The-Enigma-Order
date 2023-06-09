@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class SaveSlotsMenuController : MonoBehaviour
@@ -31,19 +30,30 @@ public class SaveSlotsMenuController : MonoBehaviour
         // Update the selected profileId used for the data persistance
         DataPersistanceManager.Instance.ChangeSelectedProfileId(saveSlot.GetProfileId());
 
-        if (!isLoadingGame )
+        if (!isLoadingGame)
         {
             // Create a new game only if coming from NewGame Button (initiate a clean GameData object)
             DataPersistanceManager.Instance.NewGame();
         }
+        else
+        {
+            DataPersistanceManager.Instance.LoadSave();
+        }
 
         // Save the Game before loading a scene
-        DataPersistanceManager.Instance.SaveGame();
+        //DataPersistanceManager.Instance.SaveGame();
 
         // TODO: Load dinamicly the scene you remaind at
         // Load Scenes (which will also load the game because of OnSceneLoaded() function)
-        SceneManager.LoadSceneAsync("SceneOne");
-        SceneManager.LoadSceneAsync("Essential", LoadSceneMode.Additive);
+
+        string scene = DataPersistanceManager.Instance.gameData.currentSceneName;
+        Vector3 playerPosition = DataPersistanceManager.Instance.gameData.playerPosition;
+
+        //SceneManager.LoadScene("Essential");
+        GameSceneManager.Instance.InitSwitchScene(scene, playerPosition);
+
+        //SceneManager.LoadSceneAsync(DataPersistanceManager.Instance.gameData.currentScene);
+        //SceneManager.LoadSceneAsync("Essential", LoadSceneMode.Additive);
     }
 
     public void OnBackButtonPressed()
