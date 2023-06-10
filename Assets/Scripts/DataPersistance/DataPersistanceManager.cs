@@ -24,6 +24,7 @@ public class DataPersistanceManager : MonoBehaviour
     private FileDataHandler dataHandler;
     private string selectedProfileId = "";
     private Coroutine autoSaveCoroutine;
+    public bool onExitButtonPressed = false;
 
     public static DataPersistanceManager Instance { get; private set; }
 
@@ -158,7 +159,11 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveGame();
+        // Save the game if it forced quited
+        if (!onExitButtonPressed)
+        {
+            SaveGame();
+        }
     }
 
     private List<IDataPersistance> FindAllDataPersistenceObjects()

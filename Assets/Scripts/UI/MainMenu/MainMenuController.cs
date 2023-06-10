@@ -30,6 +30,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OnExitButtonPressed()
     {
+        DataPersistanceManager.Instance.onExitButtonPressed = true;
         Application.Quit();
     }
 

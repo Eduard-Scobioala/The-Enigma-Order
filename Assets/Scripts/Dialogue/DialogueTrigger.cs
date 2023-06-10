@@ -25,7 +25,7 @@ public class DialogueTrigger : MonoBehaviour
         if (playerInRange && !DialogueManager.instance.DialogueIsPlaying)
         {
             visualCue.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!GameManager.instance.player.GetComponent<CharacterController>().moving && Input.GetKeyDown(KeyCode.E))
             {
                 DialogueManager.instance.EnterDialogueMode(inkJSON, NPCCharacter);
             }

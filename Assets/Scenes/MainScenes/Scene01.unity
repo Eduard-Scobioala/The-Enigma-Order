@@ -315,7 +315,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 40488803, guid: 7d654827e53369c45988b79f5b3ee223, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4932,7 +4932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808959478511148821, guid: 5cb54b1fd2b58de47b85fa6c04019cff, type: 3}
       propertyPath: disableDataPersistence
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1808959478511148821, guid: 5cb54b1fd2b58de47b85fa6c04019cff, type: 3}
       propertyPath: overrideSelectedProfileId

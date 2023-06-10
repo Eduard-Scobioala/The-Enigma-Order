@@ -597,8 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022231a0f6be41945971afedf7882310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetDistance: 1
-  sizeOfInteractableArea: 1.2
+  offsetDistance: 0.7
+  sizeOfInteractableArea: 0.7
   highlightController: {fileID: 688469084}
 --- !u!114 &81261862
 MonoBehaviour:

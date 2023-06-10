@@ -4,8 +4,8 @@ public class CharacterInteractController : MonoBehaviour
 {
     CharacterController characterController;
     Rigidbody2D rgbody2d;
-    [SerializeField] float offsetDistance = 1.0f;
-    [SerializeField] float sizeOfInteractableArea = 1.2f;
+    [SerializeField] float offsetDistance = 0.7f;
+    [SerializeField] float sizeOfInteractableArea = 0.7f;
     Character character;
     [SerializeField] HighlightController highlightController;
 
@@ -20,7 +20,7 @@ public class CharacterInteractController : MonoBehaviour
     {
         CheckForInteractable();
 
-        if (Input.GetMouseButtonDown(0))
+        if (!characterController.moving && Input.GetKeyDown(KeyCode.E))
         {
             Interact();
         }
@@ -43,6 +43,15 @@ public class CharacterInteractController : MonoBehaviour
         }
 
         highlightController.Hide();
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Vector2 position = rgbody2d.position + characterController.lastMotionVector * offsetDistance;
+
+        // Draw a wire circle with the given radius
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(position, sizeOfInteractableArea);
     }
 
     private void Interact()

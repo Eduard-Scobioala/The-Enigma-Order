@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -66,20 +65,22 @@ public class GameSceneManager : MonoBehaviour, IDataPersistance
 
     public void SwitchScene(string newScene, Vector3 targetPosition)
     {
-        //load = SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
-        //unload = SceneManager.UnloadSceneAsync(currentScene);
-
         DataPersistanceManager.Instance.gameData.playerPosition = targetPosition;
 
+        // If loading from MainMenu load the Essential Scene
+        string oldScene = currentScene;
+        currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "MainMenu")
         {
             asyncOperations.Add(SceneManager.LoadSceneAsync("Essential"));
         }
 
         asyncOperations.Add(SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive));
+
         try
         {
-            asyncOperations.Add(SceneManager.UnloadSceneAsync(currentScene));
+            //asyncOperations.Add(SceneManager.UnloadSceneAsync(currentScene));
+            SceneManager.UnloadSceneAsync(oldScene);
         }
         catch(Exception e)
         {
