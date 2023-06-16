@@ -35,20 +35,20 @@ public class GameSceneManager : MonoBehaviour, IDataPersistance
     }
 
 
-    public void InitSwitchScene(string newScene, Vector3 targetPosition)
+    public void InitSwitchScene(string newScene, Vector3 targetPosition, SwitchMode switchMode = SwitchMode.Normal)
     {
-        StartCoroutine(Transition(newScene, targetPosition));
+        StartCoroutine(Transition(newScene, targetPosition, switchMode));
         //SwitchScene(newScene, targetPosition);
     }
 
-    IEnumerator Transition(string to, Vector3 targetPosition)
+    IEnumerator Transition(string to, Vector3 targetPosition, SwitchMode switchMode)
     {
         screenTint.Tint();
 
         // Wait for the tint to finish
         yield return new WaitForSeconds(1f / screenTint.tintSpeed + 0.1f);
 
-        SwitchScene(to, targetPosition);
+        SwitchScene(to, targetPosition, switchMode);
 
         // Wait for the asyncOperations to be finished
         while (asyncOperations.Any(x => !x.isDone))
@@ -63,19 +63,27 @@ public class GameSceneManager : MonoBehaviour, IDataPersistance
         screenTint.UnTint();
     }
 
-    public void SwitchScene(string newScene, Vector3 targetPosition)
+    public enum SwitchMode
+    {
+        Normal,
+        NewGame,
+        LoadGame
+    }
+    public void SwitchScene(string newScene, Vector3 targetPosition, SwitchMode switchMode = SwitchMode.Normal)
     {
         DataPersistanceManager.Instance.gameData.playerPosition = targetPosition;
 
         // If loading from MainMenu load the Essential Scene
         string oldScene = currentScene;
         currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "MainMenu")
+
+        if (switchMode == SwitchMode.LoadGame)
         {
             asyncOperations.Add(SceneManager.LoadSceneAsync("Essential"));
         }
 
-        asyncOperations.Add(SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive));
+        var mode = switchMode == SwitchMode.NewGame ? LoadSceneMode.Single : LoadSceneMode.Additive;
+        asyncOperations.Add(SceneManager.LoadSceneAsync(newScene, mode));
 
         try
         {

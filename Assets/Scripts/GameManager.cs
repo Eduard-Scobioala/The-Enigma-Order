@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public ItemContainer inventoryContainer;
     public DnDController dndController;
 
+    public bool characterCanMove = true;
+
     private void Awake()
     {
         instance = this;

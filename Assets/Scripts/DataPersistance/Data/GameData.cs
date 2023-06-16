@@ -12,7 +12,7 @@ public class GameData
     {
         itemsCollected = new SerializableDictionary<string, bool>();
         playerPosition = Vector3.zero;
-        currentSceneName = "Scene01";
+        currentSceneName = "Prologue";
     }
 
 

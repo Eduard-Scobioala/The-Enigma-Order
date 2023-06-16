@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour, IDataPersistance
     private void Update()
     {
         // If dialogue playing, freeze the player's movement
-        if (DialogueManager.instance.DialogueIsPlaying)
+        if (!GameManager.instance.characterCanMove || DialogueManager.instance.DialogueIsPlaying)
         {
             return;
         }
