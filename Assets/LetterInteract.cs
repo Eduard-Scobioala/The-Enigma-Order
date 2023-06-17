@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LetterInteract : Interactable
 {
-    [SerializeField] private GameObject LetterInterface;
+    [SerializeField] private GameObject letterInterface;
 
     private void Awake()
     {
-        LetterInterface.SetActive(false);
+        letterInterface.SetActive(false);
     }
 
     public override void Interact(Character character)
     {
-        LetterInterface.SetActive(true);
+        letterInterface.SetActive(true);
         GameManager.instance.characterCanMove = false;
     }
 
     public void OnExitButtonPressed()
     {
-        LetterInterface.SetActive(false);
+        letterInterface.SetActive(false);
         GameManager.instance.characterCanMove = true;
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d978cd62a6fcc63459138ebca9e70fbd
+guid: 60bd0d0ea996c924da6a5fd5fb09ae37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,54 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lamp_0
+      name: Library_0
       rect:
         serializedVersion: 2
-        x: 579
-        y: 385
+        x: 702
+        y: 837
         width: 39
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 467e40e91384c084c86ca18d7c96cd47
-      internalID: 723844430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Lamp_1
-      rect:
-        serializedVersion: 2
-        x: 579
-        y: 337
-        width: 39
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 473b0a98656653e41bd23211532b1575
-      internalID: -1517008694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Table
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 610
-        width: 90
         height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -161,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7339e41b09ad2cb4f8115e7ab67a310c
-      internalID: 693952443
+      spriteID: f7ec63015d8c50f4b846ed2718e1d901
+      internalID: 1832837664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LivingRoomPartTwo_0
+      name: Library_1
       rect:
         serializedVersion: 2
-        x: 9
-        y: 649
-        width: 27
-        height: 49
+        x: 696
+        y: 891
+        width: 51
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +140,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fa5f5a2fed80f14f9f5c918a16d861a
-      internalID: -1922936319
+      spriteID: 81975e66a6454ca49af592b52c90c15f
+      internalID: -124070683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Letter
+      name: Library_2
       rect:
         serializedVersion: 2
-        x: 9
-        y: 607
+        x: 696
+        y: 747
+        width: 51
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8c36074f5792d428adba03790199ff
+      internalID: -195449721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Library_3
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 87
         width: 30
-        height: 30
+        height: 42
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +182,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e89a4426f2c2a70488c097526487c16c
-      internalID: 623644827
+      spriteID: 6652fca610ec5fd4f824f734b788bbb7
+      internalID: -1748366841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LivingRoomPartTwo_1
+      name: Library_4
       rect:
         serializedVersion: 2
-        x: 726
-        y: 520
-        width: 36
-        height: 51
+        x: 675
+        y: 6
+        width: 30
+        height: 81
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a8038330efcae8498af80546d0b6acb
-      internalID: -1483463269
+      spriteID: b035f03c60d45684aa3de8b85940eaa9
+      internalID: -112195386
       vertices: []
       indices: 
       edges: []
@@ -241,12 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Letter: 623644827
-      LivingRoomPartTwo_0: -1922936319
-      Lamp_0: 723844430
-      Table: 693952443
-      LivingRoomPartTwo_1: -1483463269
-      Lamp_1: -1517008694
+      Library_1: -124070683
+      Library_0: 1832837664
+      Library_3: -1748366841
+      Library_4: -112195386
+      Library_2: -195449721
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

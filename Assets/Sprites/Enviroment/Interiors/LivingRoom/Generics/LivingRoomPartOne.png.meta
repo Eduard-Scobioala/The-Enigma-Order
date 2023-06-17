@@ -176,7 +176,7 @@ TextureImporter:
         width: 96
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,6 +184,258 @@ TextureImporter:
       bones: []
       spriteID: c105b54f94b087e4ebdd2317aa64bc5a
       internalID: -1309181063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 797
+        width: 96
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f39534a738312f4180ab7defb9bf3ce
+      internalID: -1109583461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_3
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 747
+        width: 96
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc382504d14fd54c8ed69c77821114f
+      internalID: 383656325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_4
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 941
+        width: 96
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a17d514c9a59a4a9f517f9657d5344
+      internalID: -1540520968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_5
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 891
+        width: 96
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72d5f6f9a7b0bb49bb6e4152f19533b
+      internalID: -929195767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_6
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 941
+        width: 96
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff5a3f59abf6b148add38e5c0073358
+      internalID: -42744194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bookshelf_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 891
+        width: 96
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e1dbd95dbf82d4d9c76f03d1da67df
+      internalID: 427323068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_0
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 483
+        width: 42
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c544b4b7c8e954aa46c2a34c0925cf
+      internalID: -1136626491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 483
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99698e886820d944bb0710ba9e00200b
+      internalID: 605719749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_2
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 543
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aabfb027cb6ebd46b6c421e7ab64836
+      internalID: 1313677791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_3
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 582
+        width: 66
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c76da0fb505c743bc5affd49babb26
+      internalID: -626389251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_4
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 534
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7651f3afbccea541bbb0eacbe4969fc
+      internalID: 1321983567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LivingRoomPartOne_5
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 483
+        width: 24
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5530de201171c984eaeb85baa29227c1
+      internalID: -378544196
       vertices: []
       indices: 
       edges: []
@@ -200,9 +452,21 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Bookshelf_1: -1309181063
+      Bookshelf_3: 383656325
+      Bookshelf_5: -929195767
+      LivingRoomPartOne_0: -1136626491
+      LivingRoomPartOne_1: 605719749
+      LivingRoomPartOne_4: 1321983567
+      LivingRoomPartOne_3: -626389251
+      Bookshelf_6: -42744194
+      Bookshelf_2: -1109583461
+      LivingRoomPartOne_2: 1313677791
       Bookshelf_0: -1583120926
+      Bookshelf_4: -1540520968
       picture_0: -861887516
       picture_1: -1098287166
+      LivingRoomPartOne_5: -378544196
+      Bookshelf_7: 427323068
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

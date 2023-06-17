@@ -64,7 +64,11 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (canContinueToNextLine
+        if (canContinueToNextLine && Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ExitDialogueMode());
+        }
+        else if (canContinueToNextLine
             && currentStory.currentChoices.Count == 0
             && Input.GetKeyDown(KeyCode.E))
         {
