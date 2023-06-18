@@ -1,38 +1,39 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CabinetInteract : Interactable
+public class SecretSafeInteract : Interactable
 {
+    [SerializeField] private GameObject secretLetter;
     [SerializeField] private GameObject passwordInterface;
     [SerializeField] private TMP_InputField passwordField;
-    [SerializeField] AudioClip onOpenAudio;
 
-    Animator animator;
     string password = "";
-
-    bool open = false;
+    Animator animator;
+    Collider2D collider;
+    public bool open = false;
 
     private void Awake()
     {
-        passwordInterface.SetActive(false);
         animator = GetComponent<Animator>();
+        collider = GetComponent<Collider2D>();
+    }
+
+    private void OnEnable()
+    {
+        open = false;
+        collider.enabled = true;
     }
 
     public override void Interact(Character character)
     {
-        
-
         if (!open)
         {
             passwordInterface.SetActive(true);
             GameManager.instance.characterCanMove = false;
             GameManager.instance.canOpenInventory = false;
-        }
-        else
-        {
-            open = false;
-            animator.SetTrigger("close");
         }
     }
 
@@ -52,7 +53,8 @@ public class CabinetInteract : Interactable
         {
             open = true;
             animator.SetTrigger("open");
-            AudioManager.instance.Play(onOpenAudio);
+            collider.enabled = false;
+            secretLetter.SetActive(true);
         }
 
         passwordField.text = "";

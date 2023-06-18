@@ -130,7 +130,7 @@ public class PrologueController : MonoBehaviour
         // Wait for the end of the frame and exit dialogue mode
         yield return new WaitForEndOfFrame();
 
-        GameSceneManager.Instance.InitSwitchScene("LevelOne", Vector3.zero, GameSceneManager.SwitchMode.LoadGame);
+        GameSceneManager.Instance.InitSwitchScene("LevelOne", new Vector3(-0.5f, -5f, 0f), GameSceneManager.SwitchMode.LoadGame);
         Debug.Log("Prologue Finished");
     }
 }

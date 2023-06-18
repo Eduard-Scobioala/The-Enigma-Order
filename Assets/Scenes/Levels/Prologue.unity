@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJSON: {fileID: 4900000, guid: f3a3c84af7854164093f5142ab057702, type: 3}
-  bufferTime: 3
+  bufferTime: 1.5
   typingSpeed: 0.035
   prologueScreen: {fileID: 1520696643}
   pressEToContinue: {fileID: 243500211}

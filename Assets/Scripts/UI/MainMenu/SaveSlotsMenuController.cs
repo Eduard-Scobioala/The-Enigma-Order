@@ -40,14 +40,11 @@ public class SaveSlotsMenuController : MonoBehaviour
             DataPersistanceManager.Instance.LoadSave();
         }
 
-        // Save the Game before loading a scene
-        //DataPersistanceManager.Instance.SaveGame();
-
         // Load Scenes (which will also load the game because of OnSceneLoaded() function)
         string scene = DataPersistanceManager.Instance.gameData.currentSceneName;
         Vector3 playerPosition = DataPersistanceManager.Instance.gameData.playerPosition;
 
-        //SceneManager.LoadScene("Essential");
+        // Load the scene in aditive or single mode
         var mode = isLoadingGame ? GameSceneManager.SwitchMode.LoadGame : GameSceneManager.SwitchMode.NewGame;
         GameSceneManager.Instance.InitSwitchScene(scene, playerPosition, mode);
     }
