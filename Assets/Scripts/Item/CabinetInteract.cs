@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class CabinetInteract : Interactable
 {
     [SerializeField] private GameObject passwordInterface;
-    //[SerializeField] private TMP_Text passwordField;
     [SerializeField] private TMP_InputField passwordField;
     [SerializeField] AudioClip onOpenAudio;
 
@@ -30,6 +29,7 @@ public class CabinetInteract : Interactable
         {
             passwordInterface.SetActive(true);
             GameManager.instance.characterCanMove = false;
+            GameManager.instance.canOpenInventory = false;
         }
         else
         {
@@ -43,6 +43,7 @@ public class CabinetInteract : Interactable
         // Reset values for future interact
         passwordInterface.SetActive(false);
         GameManager.instance.characterCanMove = true;
+        GameManager.instance.canOpenInventory = true;
     }
 
     public void OnPasswordInputVerify()
@@ -59,6 +60,7 @@ public class CabinetInteract : Interactable
         passwordField.text = "";
         passwordInterface.SetActive(false);
         GameManager.instance.characterCanMove = true;
+        GameManager.instance.canOpenInventory = true;
     }
 
     private string GetCurrentPassword()

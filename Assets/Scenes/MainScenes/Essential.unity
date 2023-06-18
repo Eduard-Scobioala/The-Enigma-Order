@@ -503,7 +503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81261853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 75.16, z: 0}
+  m_LocalPosition: {x: -2.44, y: 73.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1714,7 +1714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 75.16, z: -10}
+  m_LocalPosition: {x: -2.44, y: 73.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2091,6 +2091,7 @@ MonoBehaviour:
   inventoryContainer: {fileID: 11400000, guid: b66f283f2f7937a4fb2ae50fd0e8a285, type: 2}
   dndController: {fileID: 688469085}
   characterCanMove: 1
+  canOpenInventory: 1
 --- !u!4 &688469083
 Transform:
   m_ObjectHideFlags: 0
@@ -4520,7 +4521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760619695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 75.16, z: -10}
+  m_LocalPosition: {x: -2.44, y: 73.96, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

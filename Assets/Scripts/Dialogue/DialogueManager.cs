@@ -78,6 +78,9 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON, Actor npcCharacter)
     {
+        // Disable inventory
+        GameManager.instance.canOpenInventory = false;
+
         // Set character's portrait and name
         portrait.sprite = npcCharacter.portrait;
         nameText.text = npcCharacter.Name;
@@ -157,6 +160,7 @@ public class DialogueManager : MonoBehaviour
         // Wait for the end of the frame and exit dialogue mode
         yield return new WaitForEndOfFrame();
 
+        GameManager.instance.canOpenInventory = true;
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";

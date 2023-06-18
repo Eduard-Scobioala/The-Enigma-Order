@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public DnDController dndController;
 
     public bool characterCanMove = true;
+    public bool canOpenInventory = true;
 
     private void Awake()
     {

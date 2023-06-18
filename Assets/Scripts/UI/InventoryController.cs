@@ -6,7 +6,7 @@ public class InventoryController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (GameManager.instance.canOpenInventory && Input.GetKeyDown(KeyCode.I))
         {
             panel.SetActive(!panel.activeInHierarchy);
         }

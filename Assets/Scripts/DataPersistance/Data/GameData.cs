@@ -11,7 +11,7 @@ public class GameData
     public GameData()
     {
         itemsCollected = new SerializableDictionary<string, bool>();
-        playerPosition = Vector3.zero;
+        playerPosition = new Vector3(-0.5f, -5f, 0f);
         currentSceneName = "Prologue";
     }
 

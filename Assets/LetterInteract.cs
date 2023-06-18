@@ -16,11 +16,13 @@ public class LetterInteract : Interactable
     {
         letterInterface.SetActive(true);
         GameManager.instance.characterCanMove = false;
+        GameManager.instance.canOpenInventory = false;
     }
 
     public void OnExitButtonPressed()
     {
         letterInterface.SetActive(false);
         GameManager.instance.characterCanMove = true;
+        GameManager.instance.canOpenInventory = true;
     }
 }
