@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2ba3f938-6bdf-4466-9633-f83705a82576}">
+		<property name="assetPath">
+			<value>SFX/cat_purr.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>9.177845804988662</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{17b7e126-36aa-4e35-8f01-711c32a0eec7}</destination>
+		</relationship>
+	</object>
+</objects>

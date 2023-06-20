@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CabinetInteract : Interactable
 {
+    [SerializeField] private GameObject secretLetter;
     [SerializeField] private GameObject passwordInterface;
     [SerializeField] private TMP_InputField passwordField;
 
@@ -20,8 +21,6 @@ public class CabinetInteract : Interactable
 
     public override void Interact(Character character)
     {
-        
-
         if (!open)
         {
             passwordInterface.SetActive(true);
@@ -30,8 +29,9 @@ public class CabinetInteract : Interactable
         }
         else
         {
-            open = false;
+            secretLetter.SetActive(false);
             animator.SetTrigger("close");
+            open = false;
         }
     }
 
@@ -52,6 +52,7 @@ public class CabinetInteract : Interactable
             open = true;
             animator.SetTrigger("open");
             AudioManager.Instance.PlayOneShot(FMODEvents.Instance.openCabinet, this.transform.position);
+            secretLetter.SetActive(true);
         }
 
         passwordField.text = "";

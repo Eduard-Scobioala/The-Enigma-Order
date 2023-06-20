@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdfdfecc0c68dba4c99db135465087a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0
+  SFXVolume: 0
 --- !u!1 &207475790735322131
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,3 +133,10 @@ MonoBehaviour:
       Data3: 773865609
       Data4: -1021965582
     Path: event:/TypingEffect
+  <fireplaceSound>k__BackingField:
+    Guid:
+      Data1: -8532493
+      Data2: 1274960208
+      Data3: 509290908
+      Data4: 167995031
+    Path: event:/Fireplace

@@ -49,7 +49,7 @@ public class SecretSafeInteract : Interactable
     {
         password = GetCurrentPassword();
 
-        if (passwordField.text == password)
+        if (passwordField.text.ToUpper() == password)
         {
             open = true;
             animator.SetTrigger("open");
@@ -67,9 +67,6 @@ public class SecretSafeInteract : Interactable
 
     private string GetCurrentPassword()
     {
-        DateTime currentTime = DateTime.Now;
-        string formattedTime = currentTime.ToString("HH:mm");
-
-        return formattedTime;
+        return "EUREKA";
     }
 }
