@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cd1862b9-70e6-4257-ad66-274574e37e3a}">
+		<property name="assetPath">
+			<value>SFX/Items/open_cabinet.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.55281179138322001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{17b7e126-36aa-4e35-8f01-711c32a0eec7}</destination>
+		</relationship>
+	</object>
+</objects>

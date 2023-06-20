@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController : MonoBehaviour, IDataPersistance
@@ -14,10 +15,18 @@ public class CharacterController : MonoBehaviour, IDataPersistance
     public Vector2 lastMotionVector;
     public bool moving;
 
+    // Audio
+    private EventInstance playerFootsteps;
+
     private void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        playerFootsteps = AudioManager.Instance.CreateInstance(FMODEvents.Instance.playerFootsteps);
     }
 
     #region Movement
@@ -62,6 +71,7 @@ public class CharacterController : MonoBehaviour, IDataPersistance
     void FixedUpdate()
     {
         Move();
+        UpdateSound();
     }
 
     private void Move()
@@ -84,4 +94,24 @@ public class CharacterController : MonoBehaviour, IDataPersistance
     }
 
     #endregion
+
+    private void UpdateSound()
+    {
+        // Start footstep event if the player moves
+        if (moving)
+        {
+            // get the playback state
+            PLAYBACK_STATE playbackState;
+            playerFootsteps.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                playerFootsteps.start();
+            }
+        }
+        // Stop the footsteps event
+        else
+        {
+            playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
+        }
+    }
 }

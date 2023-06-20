@@ -6,7 +6,6 @@ public class CabinetInteract : Interactable
 {
     [SerializeField] private GameObject passwordInterface;
     [SerializeField] private TMP_InputField passwordField;
-    [SerializeField] AudioClip onOpenAudio;
 
     Animator animator;
     string password = "";
@@ -52,7 +51,7 @@ public class CabinetInteract : Interactable
         {
             open = true;
             animator.SetTrigger("open");
-            AudioManager.instance.Play(onOpenAudio);
+            AudioManager.Instance.PlayOneShot(FMODEvents.Instance.openCabinet, this.transform.position);
         }
 
         passwordField.text = "";

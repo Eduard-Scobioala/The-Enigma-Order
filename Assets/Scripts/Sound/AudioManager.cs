@@ -1,58 +1,98 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IDataPersistance
 {
-    public static AudioManager instance;
+    [Header("Volume")]
+    [Range(0, 1)]
+    public float musicVolume;
+    [Range(0, 1)]
+    public float SFXVolume;
+
+    private Bus musicBus;
+    private Bus sfxBus;
+
+    private List<EventInstance> eventInstances;
+    private EventInstance musicEventInstance;
+
+    public static AudioManager Instance { get; private set; }
 
     private void Awake()
     {
-        instance = this;
+        if (Instance != null)
+        {
+            Debug.LogError("Found more than one Audio Manager in the scene.");
+        }
+
+        Instance = this;
+
+        eventInstances = new List<EventInstance>();
+
+        // Get busses for the volume control
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
     }
-
-    [SerializeField] GameObject audioSourcePrefab;
-    [SerializeField] int audioSourceCount;
-
-    List<AudioSource> audioSources;
 
     private void Start()
     {
-        Init();
+        try
+        {
+            InitializeMusic(FMODEvents.Instance.backgroundMusic);
+        }
+        catch{}
     }
 
-    private void Init()
+    private void Update()
     {
-        audioSources = new List<AudioSource>();
+        musicBus.setVolume(musicVolume);
+        sfxBus.setVolume(SFXVolume);
+    }
 
-        for (int i = 0; i < audioSourceCount; i++)
+    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    {
+        RuntimeManager.PlayOneShot(sound, worldPos);
+    }
+
+    public EventInstance CreateInstance(EventReference eventReference)
+    {
+        EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
+        eventInstances.Add(eventInstance);
+        return eventInstance;
+    }
+
+    private void InitializeMusic(EventReference musicEventReference)
+    {
+        musicEventInstance = CreateInstance(musicEventReference);
+        musicEventInstance.start();
+    }
+
+    private void CleanUp()
+    {
+        // Stop and release any created instances
+        foreach (EventInstance eventInstance in eventInstances)
         {
-            GameObject go = Instantiate(audioSourcePrefab, transform);
-            go.transform.localPosition = Vector3.zero;
-            audioSources.Add(go.GetComponent<AudioSource>());
+            eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            eventInstance.release();
         }
     }
 
-    public void Play(AudioClip audioClip)
+    private void OnDestroy()
     {
-        if (audioClip == null) { return; }
-
-        AudioSource audioSource = GetFreeAudioSource();
-
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        CleanUp();
     }
 
-    private AudioSource GetFreeAudioSource()
+    public void LoadData(GameData data)
     {
-        for (int i = 0; i < audioSources.Count;i++)
-        {
-            if (audioSources[i].isPlaying == false)
-            {
-                return audioSources[i];
-            }
-        }
+        // Set up the volume
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 1.0f);
+        SFXVolume =  PlayerPrefs.GetFloat("SFXVolume", 1.0f);
+    }
 
-        return audioSources[0];
+    public void SaveData(GameData data)
+    {
+        return;
     }
 }

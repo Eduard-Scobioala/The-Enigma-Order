@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
@@ -335,6 +335,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: notes
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 968
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358800d447c8fb44f8bdc54576fce2a1
+      internalID: 820831151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -347,6 +368,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       dialogue_frame_1: -1698856659
+      notes: 820831151
       ui_menu_0: -623389825
       profile_slot: 1441991866
       ui_menu_1: 796842879

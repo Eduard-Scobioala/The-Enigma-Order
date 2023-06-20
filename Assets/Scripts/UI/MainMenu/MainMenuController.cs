@@ -4,6 +4,7 @@ public class MainMenuController : MonoBehaviour
 {
     [Header("Menu Navigation")]
     [SerializeField] private SaveSlotsMenuController saveSlotsMenu;
+    [SerializeField] private OptionMenuController optionMenu;
 
 
     #region OnButtonPressed
@@ -22,8 +23,8 @@ public class MainMenuController : MonoBehaviour
 
     public void OnOptionButtonPressed()
     {
-        Debug.LogWarning("OptionButton not implemented");
-
+        this.DeactivateMenu();
+        optionMenu.ActivateMenu(true);
     }
 
     public void OnExitButtonPressed()

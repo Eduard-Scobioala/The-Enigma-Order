@@ -46,6 +46,13 @@ public class SaveSlotsMenuController : MonoBehaviour
 
         // Load the scene in aditive or single mode
         var mode = isLoadingGame ? GameSceneManager.SwitchMode.LoadGame : GameSceneManager.SwitchMode.NewGame;
+
+        // If forced quit in Prologue load the game as it would be a new one
+        if (scene == "Prologue")
+        {
+            mode = GameSceneManager.SwitchMode.NewGame;
+        }
+
         GameSceneManager.Instance.InitSwitchScene(scene, playerPosition, mode);
     }
 

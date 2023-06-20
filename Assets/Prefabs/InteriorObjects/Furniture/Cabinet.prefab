@@ -768,9 +768,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171dff07b17709747a2f72dd2fb07495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passwordInterface: {fileID: 0}
-  passwordField: {fileID: 0}
-  onOpenAudio: {fileID: 8300000, guid: 5d70581fc6af2e84d8515da7d2a19c12, type: 3}
+  passwordInterface: {fileID: 2702552611733958485}
+  passwordField: {fileID: 5943703106993282481}
+  openCabinetSound:
+    Guid:
+      Data1: 821986499
+      Data2: 1324847935
+      Data3: 2056702856
+      Data4: 1505562467
+    Path: event:/OpenCabinet
 --- !u!61 &3323791442511892459
 BoxCollider2D:
   m_ObjectHideFlags: 0

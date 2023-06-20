@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using Ink.Runtime;
 using System.Collections;
 using System.Linq;
@@ -16,25 +17,24 @@ public class PrologueController : MonoBehaviour
     [SerializeField] private GameObject pressEToContinue;
     [SerializeField] private TMP_Text prologueText;
 
-    [Header("Sound")]
-    [SerializeField] private AudioClip typingSound;
-    [SerializeField] private int frequencyLevel = 2;
-    [SerializeField] private bool stopAudioSource;
-    private AudioSource audioSource;
+    //[Header("Sound")]
+    //[SerializeField] private AudioClip typingSound;
+    //[SerializeField] private int frequencyLevel = 2;
+    //[SerializeField] private bool stopAudioSource;
+    //private AudioSource audioSource;
 
+    // Dialogue Object
     private Story currentStory;
+    // Audio
+    private EventInstance typingSound;
 
     // Variable for checking if the last coroutine has ended
     private Coroutine displayLineCoroutine;
     private bool canContinueToNextLine = false;
 
-    private void Awake()
-    {
-        audioSource = gameObject.AddComponent<AudioSource>();
-    }
-
     private void Start()
     {
+        typingSound = AudioManager.Instance.CreateInstance(FMODEvents.Instance.typingEffect);
         StartCoroutine(StartPrologue(inkJSON));
     }
 
@@ -83,6 +83,9 @@ public class PrologueController : MonoBehaviour
 
     private IEnumerator DisplayLine(string line)
     {
+        // Start typing effect
+        UpdateSound(true);
+
         // Empty the dialogue text
         prologueText.text = "";
 
@@ -99,31 +102,35 @@ public class PrologueController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 prologueText.text = line;
+                // Start typing effect
+                UpdateSound(false);
                 break;
             }
 
-            PlayTypingSound(prologueText.text.Count());
+            //PlayTypingSound(prologueText.text.Count());
             prologueText.text += letter;
 
             yield return new WaitForSeconds(typingSpeed);
         }
 
         yield return new WaitForSeconds(0.2f);
+        // Start typing effect
+        UpdateSound(false);
         canContinueToNextLine = true;
         pressEToContinue.SetActive(true);
     }
 
-    private void PlayTypingSound(int characterCount)
-    {
-        if (characterCount % frequencyLevel == 0)
-        {
-            if (stopAudioSource)
-            {
-                audioSource.Stop();
-            }
-            audioSource.PlayOneShot(typingSound);
-        }
-    }
+    //private void PlayTypingSound(int characterCount)
+    //{
+    //    if (characterCount % frequencyLevel == 0)
+    //    {
+    //        if (stopAudioSource)
+    //        {
+    //            audioSource.Stop();
+    //        }
+    //        audioSource.PlayOneShot(typingSound);
+    //    }
+    //}
 
     private IEnumerator ExitPrologue()
     {
@@ -132,5 +139,25 @@ public class PrologueController : MonoBehaviour
 
         GameSceneManager.Instance.InitSwitchScene("LevelOne", new Vector3(-0.5f, -5f, 0f), GameSceneManager.SwitchMode.LoadGame);
         Debug.Log("Prologue Finished");
+    }
+
+    private void UpdateSound(bool inDialogue)
+    {
+        // Start footstep event if the player moves
+        if (inDialogue)
+        {
+            // get the playback state
+            PLAYBACK_STATE playbackState;
+            typingSound.getPlaybackState(out playbackState);
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            {
+                typingSound.start();
+            }
+        }
+        // Stop the footsteps event
+        else
+        {
+            typingSound.stop(STOP_MODE.ALLOWFADEOUT);
+        }
     }
 }

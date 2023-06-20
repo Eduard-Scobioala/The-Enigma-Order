@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public ItemContainer inventoryContainer;
     public DnDController dndController;
+    public DialogueManager dialogueManager;
 
     public bool characterCanMove = true;
     public bool canOpenInventory = true;
