@@ -33,11 +33,9 @@ public class VolumeSlider : MonoBehaviour
         switch (volumeType)
         {
             case VolumeType.MUSIC:
-                AudioManager.Instance.musicVolume = volumeSlider.value;
                 PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
                 break;
             case VolumeType.SFX:
-                AudioManager.Instance.SFXVolume = volumeSlider.value;
                 PlayerPrefs.SetFloat("SFXVolume", volumeSlider.value);
                 break;
             default:

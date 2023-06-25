@@ -56,17 +56,17 @@ public class AudioManager : MonoBehaviour, IDataPersistance
         RuntimeManager.PlayOneShot(sound, worldPos);
     }
 
+    private void InitializeMusic(EventReference musicEventReference)
+    {
+        musicEventInstance = CreateInstance(musicEventReference);
+        musicEventInstance.start();
+    }
+
     public EventInstance CreateInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         eventInstances.Add(eventInstance);
         return eventInstance;
-    }
-
-    private void InitializeMusic(EventReference musicEventReference)
-    {
-        musicEventInstance = CreateInstance(musicEventReference);
-        musicEventInstance.start();
     }
 
     private void CleanUp()

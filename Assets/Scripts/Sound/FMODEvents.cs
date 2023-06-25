@@ -25,6 +25,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Typing SFX")]
     [field: SerializeField] public EventReference typingEffect { get; private set; }
 
+    [field: Header("Clock SFX")]
+    [field: SerializeField] public EventReference clockEffect { get; private set; }
+
     public static FMODEvents Instance { get; private set; }
 
     private void Awake()

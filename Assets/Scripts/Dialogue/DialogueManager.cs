@@ -191,23 +191,13 @@ public class DialogueManager : MonoBehaviour
         //StartCoroutine(SelectFirstChoice());
     }
 
-    private IEnumerator SelectFirstChoice()
-    {
-        // Event System requires we clear it first, then wait
-        // for at least one frame before we set the current selected object.
-        EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
-    }
-
     public void MakeChoice(int choiceIndex)
     {
         if (canContinueToNextLine)
         {
             currentStory.ChooseChoiceIndex(choiceIndex);
 
-            //InputManager.GetInstance().RegisterSubmitPressed();
-            // Continue the story from here imstead of updated when we got choices
+            // Continue the story from here instead of updated when we got choices
             ContinueStory();
         }
     }

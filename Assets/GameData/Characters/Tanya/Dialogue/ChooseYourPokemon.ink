@@ -1,12 +1,12 @@
 -> main
 
 === main ===
-Which pokemon do you choose?
-    + [Charmander]
+Hey Henry! It's good to see you. How are you doing today?
+    + [I'm doing great, thanks for asking.]
         -> chosen("Charmander")
-    + [Bulbasaur]
+    + [I've had better days, but I'm good.]
         -> chosen("Bulbasaur")
-    + [Squirtle]
+    + [It's been a tough day]
         -> chosen("Squirtle")
         
 === chosen(pokemon) ===
